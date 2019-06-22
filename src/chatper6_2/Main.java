@@ -1,6 +1,7 @@
 package chatper6_2;
 
 import java.util.function.IntBinaryOperator;
+import java.util.function.IntToDoubleFunction;
 
 public class Main {
 
@@ -20,13 +21,29 @@ public class Main {
 		Time func3 = () -> { return new java.util.Date(); };
 		System.out.println(func3.call());
 
-		long[] array = new long[] { 10, 20, 30, 40, 50 };
+		long[] array = new long[] { 2110, 10, 50, 3403, 560 };
 
-		SortArray func4 = (long[] array) -> {
-			long[] array2 = java.util.Arrays.copyOf(array, array.length);
-			java.util.Arrays.parallelSort(array2);
+		for (long l : array) {
+			System.out.println(l);
+		}
+
+		SortArray func4 = (long[] ar) -> {
+			long[] array2 = java.util.Arrays.copyOf(ar, ar.length);
+			java.util.Arrays.sort(array2);
 			return array2;
 		};
+		
+		System.out.println("配列の並び替えを行なって出力します。");
+
+		for (long l : func4.sortArray(array)) {
+			System.out.println(l);
+		}
+
+		double b = 1.24;
+		IntToDoubleFunction func12 = (int x) -> { return x * x * b; };
+
+		double i = func12.applyAsDouble(10);
+		System.out.println(i);
 
 
 
